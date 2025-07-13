@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'service_management.dart';
 
 class ProviderDashboardPage extends StatefulWidget {
   const ProviderDashboardPage({Key? key}) : super(key: key);
@@ -9,6 +10,14 @@ class ProviderDashboardPage extends StatefulWidget {
 
 class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
   int _selectedIndex = 0;
+
+  late BuildContext _context;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _context = context;
+  }
 
   static final List<Widget> _pages = <Widget>[
     Padding(
@@ -21,11 +30,18 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
           const Text('Se escolher "Buscar ou Levar Carro", mostrar opção:'),
           const Text('✅ Capacidade de diagnosticar problemas no veículo'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Gerenciar Serviços'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ServiceManagementPage(),
+                  ),
+                );
+              },
+              child: const Text('Gerenciar Serviços'),
+            ),
           ),
         ],
       ),

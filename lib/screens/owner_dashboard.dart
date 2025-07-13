@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'vehicle_management.dart';
+import 'service_need_list.dart';
+import 'proposals_page.dart';
+import 'payment_management.dart';
+import 'service_evaluation.dart';
+import 'expense_reports.dart';
+import 'subscription_management.dart';
+import 'message_center.dart';
+import 'profile_edit.dart';
 
 class OwnerDashboardPage extends StatefulWidget {
   const OwnerDashboardPage({Key? key}) : super(key: key);
@@ -19,11 +28,18 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
           const SizedBox(height: 12),
           const Text('Cadastro, edição e remoção de veículos'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Gerenciar Veículos'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const VehicleManagementPage(),
+                  ),
+                );
+              },
+              child: const Text('Gerenciar Veículos'),
+            ),
           ),
         ],
       ),
@@ -38,11 +54,18 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
           const Text('Campos dinâmicos por tipo de serviço (ex: fotos, local de entrega)'),
           const Text('Listar necessidades abertas, em andamento ou concluídas'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Gerenciar Necessidades'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ServiceNeedListPage(),
+                  ),
+                );
+              },
+              child: const Text('Gerenciar Necessidades'),
+            ),
           ),
         ],
       ),
@@ -59,7 +82,12 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              // TODO: Implementar funcionalidade
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProposalsPage(),
+                ),
+              );
             },
             child: const Text('Visualizar Propostas'),
           ),
@@ -76,11 +104,18 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
           const Text('Ver fatura do serviço (valor + comissão + imposto)'),
           const Text('Histórico de pagamentos'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Gerenciar Pagamentos'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PaymentManagementPage(),
+                  ),
+                );
+              },
+              child: const Text('Gerenciar Pagamentos'),
+            ),
           ),
         ],
       ),
@@ -93,11 +128,18 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
           const SizedBox(height: 12),
           const Text('Avaliar o serviço após finalizado'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Avaliar Serviço'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ServiceEvaluationPage(),
+                  ),
+                );
+              },
+              child: const Text('Avaliar Serviço'),
+            ),
           ),
         ],
       ),
@@ -111,11 +153,18 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
           const Text('Relatório por período e por veículo'),
           const Text('Exportar como PDF ou Excel (se possível)'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Visualizar Relatórios'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ExpenseReportsPage(),
+                  ),
+                );
+              },
+              child: const Text('Visualizar Relatórios'),
+            ),
           ),
         ],
       ),
@@ -130,11 +179,18 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
           const Text('Assinar ou trocar plano (via Stripe)'),
           const Text('Ver histórico de cobrança'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Gerenciar Assinatura'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SubscriptionManagementPage(),
+                  ),
+                );
+              },
+              child: const Text('Gerenciar Assinatura'),
+            ),
           ),
         ],
       ),
@@ -148,11 +204,18 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
           const Text('Chat com prestadores com tradução automática'),
           const Text('Envio de fotos e vídeos'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Abrir Central de Mensagens'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MessageCenterPage(),
+                  ),
+                );
+              },
+              child: const Text('Abrir Central de Mensagens'),
+            ),
           ),
         ],
       ),
@@ -166,11 +229,18 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
           const Text('Alterar dados pessoais e senha'),
           const Text('Preferência de idioma'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Editar Perfil'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileEditPage(),
+                  ),
+                );
+              },
+              child: const Text('Editar Perfil'),
+            ),
           ),
         ],
       ),

@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+import '../mock_data.dart';
+
+class ServiceEvaluationPage extends StatelessWidget {
+  const ServiceEvaluationPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final reviews = MockData.reviews;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Avaliar Serviço'),
+      ),
+      body: ListView.builder(
+        itemCount: reviews.length,
+        itemBuilder: (context, index) {
+          final review = reviews[index];
+          return ListTile(
+            title: Text('Prestador: ${review['providerName']}'),
+            subtitle: Text('Avaliação: ${review['rating']} - Comentário: ${review['comment']}'),
+            trailing: ElevatedButton(
+              onPressed: () {
+                // TODO: Implementar funcionalidade de avaliação
+              },
+              child: const Text('Avaliar'),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
