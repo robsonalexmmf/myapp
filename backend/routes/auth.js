@@ -1,60 +1,63 @@
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 const router = express.Router();
 
-// Register
-router.post('/register', async (req, res) => {
-  try {
-    const { role, name, email, password, phone, address } = req.body;
-    if (!role || !name || !email || !password) {
-      return res.status(400).json({ message: 'Missing required fields' });
-    }
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(409).json({ message: 'Email already registered' });
-    }
-    const user = new User({
-      role,
-      name,
-      email,
-      passwordHash: password,
-      phone,
-      address,
-    });
-    await user.save();
-    res.status(201).json({ message: 'User registered successfully' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
+const JWT_SECRET = 'your_jwt_secret_key'; // Replace with env variable in production
 
-// Login
+// Mock users for owner, provider, admin
+const mockUsers = [
+  {
+    email: 'owner@example.com',
+    passwordHash: bcrypt.hashSync('owner123', 10),
+    role: 'owner',
+    name: 'Proprietário Exemplo',
+  },
+  {
+    email: 'provider@example.com',
+    passwordHash: bcrypt.hashSync('provider123', 10),
+    role: 'provider',
+    name: 'Prestador Exemplo',
+  },
+  {
+    email: 'admin@example.com',
+    passwordHash: bcrypt.hashSync('admin123', 10),
+    role: 'admin',
+    name: 'Administrador Exemplo',
+  },
+];
+
+// Login route
 router.post('/login', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      return res.status(400).json({ message: 'Missing email or password' });
+  const { email, password } = req.body;
+
+  // Check against mock users
+  const mockUser = mockUsers.find(u => u.email === email);
+  if (mockUser) {
+    const isPasswordValid = bcrypt.compareSync(password, mockUser.passwordHash);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Senha inválida' });
     }
+    const token = jwt.sign({ email: mockUser.email, role: mockUser.role }, JWT_SECRET, { expiresIn: '1d' });
+    return res.json({ token, user: { email: mockUser.email, role: mockUser.role, name: mockUser.name } });
+  }
+
+  // Otherwise, check in DB
+  try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ message: 'Usuário não encontrado' });
     }
-    const isMatch = await user.comparePassword(password);
-    if (!isMatch) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+    const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Senha inválida' });
     }
-    const token = jwt.sign(
-      { userId: user._id, role: user.role },
-      process.env.JWT_SECRET,
-      { expiresIn: '7d' }
-    );
-    res.json({ token, role: user.role, name: user.name });
+    const token = jwt.sign({ email: user.email, role: user.role }, JWT_SECRET, { expiresIn: '1d' });
+    return res.json({ token, user: { email: user.email, role: user.role, name: user.name } });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
+    return res.status(500).json({ message: 'Erro no servidor' });
   }
 });
 

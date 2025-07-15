@@ -1,17 +1,18 @@
 const mongoose = require('mongoose');
 
-const serviceNeedSchema = new mongoose.Schema({
-  ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+const ServiceNeedSchema = new mongoose.Schema({
+  ownerEmail: { type: String, required: true },
   vehicleId: { type: mongoose.Schema.Types.ObjectId, ref: 'Vehicle', required: true },
   serviceType: { type: String, required: true },
-  location: {
-    type: { type: String, enum: ['Point'], default: 'Point' },
-    coordinates: { type: [Number], required: true }, // [longitude, latitude]
-  },
   description: { type: String },
+  location: {
+    latitude: { type: Number, required: true },
+    longitude: { type: Number, required: true },
+  },
+  photos: [{ type: String }], // URLs or base64 strings
+  status: { type: String, enum: ['open', 'in_progress', 'completed', 'cancelled'], default: 'open' },
   createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
 });
 
-serviceNeedSchema.index({ location: '2dsphere' });
-
-module.exports = mongoose.model('ServiceNeed', serviceNeedSchema);
+module.exports = mongoose.model('ServiceNeed', ServiceNeedSchema);

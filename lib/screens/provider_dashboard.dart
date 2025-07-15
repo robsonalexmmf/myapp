@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'service_management.dart';
+import 'service_need_list.dart';
+import 'proposals_page.dart';
+import 'payment_management.dart';
+import 'message_center.dart';
+import 'service_evaluation.dart';
+import 'profile_edit.dart';
 
 class ProviderDashboardPage extends StatefulWidget {
   const ProviderDashboardPage({Key? key}) : super(key: key);
@@ -10,14 +16,6 @@ class ProviderDashboardPage extends StatefulWidget {
 
 class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
   int _selectedIndex = 0;
-
-  late BuildContext _context;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _context = context;
-  }
 
   static final List<Widget> _pages = <Widget>[
     Padding(
@@ -56,11 +54,18 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
           const Text('Ver detalhes da necessidade'),
           const Text('Enviar proposta com valor menor que a anterior'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Visualizar Necessidades'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ServiceNeedListPage(),
+                  ),
+                );
+              },
+              child: const Text('Visualizar Necessidades'),
+            ),
           ),
         ],
       ),
@@ -74,11 +79,18 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
           const Text('Ver status: enviada, aceita, recusada'),
           const Text('Ver histórico'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Visualizar Propostas'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProposalsPage(),
+                  ),
+                );
+              },
+              child: const Text('Visualizar Propostas'),
+            ),
           ),
         ],
       ),
@@ -93,11 +105,18 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
           const Text('Upload de fotos (traseira, painel, internas, etc.)'),
           const Text('Confirmação de geolocalização'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Gerenciar Execução'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ServiceManagementPage(),
+                  ),
+                );
+              },
+              child: const Text('Gerenciar Execução'),
+            ),
           ),
         ],
       ),
@@ -112,11 +131,18 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
           const Text('Status de pagamento (pendente, pago)'),
           const Text('Relatório de transferências'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Visualizar Ganhos'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PaymentManagementPage(),
+                  ),
+                );
+              },
+              child: const Text('Visualizar Ganhos'),
+            ),
           ),
         ],
       ),
@@ -130,11 +156,18 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
           const Text('Chat com o proprietário com tradução automática'),
           const Text('Envio de fotos e vídeos'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Abrir Central de Mensagens'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MessageCenterPage(),
+                  ),
+                );
+              },
+              child: const Text('Abrir Central de Mensagens'),
+            ),
           ),
         ],
       ),
@@ -147,11 +180,18 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
           const SizedBox(height: 12),
           const Text('Ver nota e comentários deixados pelos proprietários'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Visualizar Avaliações'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ServiceEvaluationPage(),
+                  ),
+                );
+              },
+              child: const Text('Visualizar Avaliações'),
+            ),
           ),
         ],
       ),
@@ -165,11 +205,18 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
           const Text('Alterar dados pessoais e senha'),
           const Text('Preferência de idioma'),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: Implementar funcionalidade
-            },
-            child: const Text('Editar Perfil'),
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileEditPage(),
+                  ),
+                );
+              },
+              child: const Text('Editar Perfil'),
+            ),
           ),
         ],
       ),
