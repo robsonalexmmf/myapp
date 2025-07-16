@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mock_data.dart';
+import 'service_need_detail.dart';
 
 class ServiceNeedListPage extends StatelessWidget {
   const ServiceNeedListPage({Key? key}) : super(key: key);
@@ -22,7 +23,12 @@ class ServiceNeedListPage extends StatelessWidget {
             trailing: ElevatedButton(
               child: const Text('Visualizar Necessidade'),
               onPressed: () {
-                // TODO: Implementar visualização detalhada da necessidade
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ServiceNeedDetailPage(need: need),
+                  ),
+                );
               },
             ),
           );

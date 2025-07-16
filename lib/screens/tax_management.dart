@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mock_data.dart';
+import 'tax_edit.dart';
 
 class TaxManagementPage extends StatelessWidget {
   const TaxManagementPage({Key? key}) : super(key: key);
@@ -22,7 +23,12 @@ class TaxManagementPage extends StatelessWidget {
             trailing: IconButton(
               icon: const Icon(Icons.edit),
               onPressed: () {
-                // TODO: Implementar edição do imposto
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TaxEditPage(tax: tax),
+                  ),
+                );
               },
             ),
           );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mock_data.dart';
+import 'user_edit.dart';
 
 class UserManagementPage extends StatelessWidget {
   const UserManagementPage({Key? key}) : super(key: key);
@@ -22,7 +23,12 @@ class UserManagementPage extends StatelessWidget {
             trailing: IconButton(
               icon: const Icon(Icons.edit),
               onPressed: () {
-                // TODO: Implementar edição do usuário
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => UserEditPage(user: user),
+                  ),
+                );
               },
             ),
           );

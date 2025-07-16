@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mock_data.dart';
+import 'proposal_detail.dart';
 
 class ProposalsPage extends StatelessWidget {
   const ProposalsPage({Key? key}) : super(key: key);
@@ -18,10 +19,15 @@ class ProposalsPage extends StatelessWidget {
           final proposal = proposals[index];
           return ListTile(
             title: Text('Prestador: ${proposal['providerName']}'),
-            subtitle: Text('Valor: \$${proposal['amount'].toStringAsFixed(2)} - Avaliação: ${proposal['rating']}'),
+            subtitle: Text('Valor: \$${(proposal['amount'] ?? 0.0).toStringAsFixed(2)} - Avaliação: ${proposal['rating']}'),
             trailing: ElevatedButton(
               onPressed: () {
-                // TODO: Confirmar execução do serviço
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProposalDetailPage(proposal: proposal),
+                  ),
+                );
               },
               child: const Text('Confirmar'),
             ),

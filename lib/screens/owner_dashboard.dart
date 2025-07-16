@@ -29,12 +29,11 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
         padding: const EdgeInsets.all(16),
         child: ListView(
           children: [
-            const Text('Meus Veículos', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
-            const Text('Cadastro, edição e remoção de veículos'),
-            const SizedBox(height: 20),
-            Builder(
-              builder: (context) => ElevatedButton(
+            ListTile(
+              leading: Icon(Icons.directions_car, color: Colors.teal),
+              title: const Text('Meus Veículos', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              subtitle: const Text('Cadastro, edição e remoção de veículos'),
+              trailing: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -46,21 +45,12 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
                 child: const Text('Gerenciar Veículos'),
               ),
             ),
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            const Text('Minhas Necessidades', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
-            const Text('Criar nova necessidade de serviço com geolocalização e tipo de serviço'),
-            const Text('Campos dinâmicos por tipo de serviço (ex: fotos, local de entrega)'),
-            const Text('Listar necessidades abertas, em andamento ou concluídas'),
             const SizedBox(height: 20),
-            Builder(
-              builder: (context) => ElevatedButton(
+            ListTile(
+              leading: Icon(Icons.build, color: Colors.orange),
+              title: const Text('Minhas Necessidades', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              subtitle: const Text('Criar nova necessidade de serviço com geolocalização e tipo de serviço'),
+              trailing: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -72,21 +62,12 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
                 child: const Text('Gerenciar Necessidades'),
               ),
             ),
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            const Text('Propostas Recebidas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
-            const Text('Leilão invertido: ver propostas dos prestadores com valores decrescentes'),
-            const Text('Ver perfil e avaliação de prestadores'),
-            const Text('Confirmar execução do serviço'),
             const SizedBox(height: 20),
-            Builder(
-              builder: (context) => ElevatedButton(
+            ListTile(
+              leading: Icon(Icons.gavel, color: Colors.purple),
+              title: const Text('Propostas Recebidas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              subtitle: const Text('Leilão invertido: ver propostas dos prestadores com valores decrescentes'),
+              trailing: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -98,21 +79,12 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
                 child: const Text('Visualizar Propostas'),
               ),
             ),
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            const Text('Pagamento', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
-            const Text('Vincular cartão de crédito (Stripe)'),
-            const Text('Ver fatura do serviço (valor + comissão + imposto)'),
-            const Text('Histórico de pagamentos'),
             const SizedBox(height: 20),
-            Builder(
-              builder: (context) => ElevatedButton(
+            ListTile(
+              leading: Icon(Icons.payment, color: Colors.green),
+              title: const Text('Pagamento', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              subtitle: const Text('Vincular cartão de crédito (Stripe)'),
+              trailing: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -124,19 +96,12 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
                 child: const Text('Gerenciar Pagamentos'),
               ),
             ),
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            const Text('Avaliar Serviço', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
-            const Text('Avaliar o serviço após finalizado'),
             const SizedBox(height: 20),
-            Builder(
-              builder: (context) => ElevatedButton(
+            ListTile(
+              leading: Icon(Icons.rate_review, color: Colors.blue),
+              title: const Text('Avaliar Serviço', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              subtitle: const Text('Avaliar o serviço após finalizado'),
+              trailing: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -148,20 +113,12 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
                 child: const Text('Avaliar Serviço'),
               ),
             ),
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            const Text('Relatório de Despesas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
-            const Text('Relatório por período e por veículo'),
-            const Text('Exportar como PDF ou Excel (se possível)'),
             const SizedBox(height: 20),
-            Builder(
-              builder: (context) => ElevatedButton(
+            ListTile(
+              leading: Icon(Icons.receipt_long, color: Colors.brown),
+              title: const Text('Relatório de Despesas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              subtitle: const Text('Relatório por período e por veículo'),
+              trailing: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -173,21 +130,12 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
                 child: const Text('Visualizar Relatórios'),
               ),
             ),
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            const Text('Assinatura', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
-            const Text('Ver plano atual (Standard ou Premium)'),
-            const Text('Assinar ou trocar plano (via Stripe)'),
-            const Text('Ver histórico de cobrança'),
             const SizedBox(height: 20),
-            Builder(
-              builder: (context) => ElevatedButton(
+            ListTile(
+              leading: Icon(Icons.subscriptions, color: Colors.deepPurple),
+              title: const Text('Assinatura', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              subtitle: const Text('Ver plano atual (Standard ou Premium)'),
+              trailing: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -199,20 +147,12 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
                 child: const Text('Gerenciar Assinatura'),
               ),
             ),
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            const Text('Mensagens', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
-            const Text('Chat com prestadores com tradução automática'),
-            const Text('Envio de fotos e vídeos'),
             const SizedBox(height: 20),
-            Builder(
-              builder: (context) => ElevatedButton(
+            ListTile(
+              leading: Icon(Icons.message, color: Colors.tealAccent),
+              title: const Text('Mensagens', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              subtitle: const Text('Chat com prestadores com tradução automática'),
+              trailing: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -224,20 +164,12 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
                 child: const Text('Abrir Central de Mensagens'),
               ),
             ),
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            const Text('Perfil', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
-            const Text('Alterar dados pessoais e senha'),
-            const Text('Preferência de idioma'),
             const SizedBox(height: 20),
-            Builder(
-              builder: (context) => ElevatedButton(
+            ListTile(
+              leading: Icon(Icons.person, color: Colors.pinkAccent),
+              title: const Text('Perfil', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              subtitle: const Text('Alterar dados pessoais e senha'),
+              trailing: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,

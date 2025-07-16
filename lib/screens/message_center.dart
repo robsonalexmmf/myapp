@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mock_data.dart';
+import 'chat_detail.dart';
 
 class MessageCenterPage extends StatelessWidget {
   const MessageCenterPage({Key? key}) : super(key: key);
@@ -20,7 +21,12 @@ class MessageCenterPage extends StatelessWidget {
             title: Text('Prestador: ${message['providerName'] ?? message['to']}'),
             subtitle: Text('Última mensagem: ${message['lastMessage'] ?? message['content']}'),
             onTap: () {
-              // TODO: Abrir chat detalhado
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatDetailPage(chat: message),
+                ),
+              );
             },
           );
         },

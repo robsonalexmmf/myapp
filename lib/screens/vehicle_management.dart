@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mock_data.dart';
+import 'vehicle_edit.dart';
 
 class VehicleManagementPage extends StatelessWidget {
   const VehicleManagementPage({Key? key}) : super(key: key);
@@ -22,7 +23,12 @@ class VehicleManagementPage extends StatelessWidget {
             trailing: IconButton(
               icon: const Icon(Icons.edit),
               onPressed: () {
-                // TODO: Implementar edição do veículo
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => VehicleEditPage(vehicle: vehicle),
+                  ),
+                );
               },
             ),
           );

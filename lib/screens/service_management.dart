@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mock_data.dart';
+import 'service_edit.dart';
 
 class ServiceManagementPage extends StatelessWidget {
   const ServiceManagementPage({Key? key}) : super(key: key);
@@ -22,7 +23,12 @@ class ServiceManagementPage extends StatelessWidget {
             trailing: IconButton(
               icon: const Icon(Icons.edit),
               onPressed: () {
-                // TODO: Implementar edição do serviço
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ServiceEditPage(service: service),
+                  ),
+                );
               },
             ),
           );

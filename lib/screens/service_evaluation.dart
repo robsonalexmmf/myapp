@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mock_data.dart';
+import 'service_evaluation_detail.dart';
 
 class ServiceEvaluationPage extends StatelessWidget {
   const ServiceEvaluationPage({Key? key}) : super(key: key);
@@ -21,7 +22,12 @@ class ServiceEvaluationPage extends StatelessWidget {
             subtitle: Text('Avaliação: ${review['rating']} - Comentário: ${review['comment']}'),
             trailing: ElevatedButton(
               onPressed: () {
-                // TODO: Implementar funcionalidade de avaliação
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ServiceEvaluationDetailPage(review: review),
+                  ),
+                );
               },
               child: const Text('Avaliar'),
             ),
