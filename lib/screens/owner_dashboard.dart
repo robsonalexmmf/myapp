@@ -29,156 +29,336 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
         padding: const EdgeInsets.all(16),
         child: ListView(
           children: [
-            ListTile(
-              leading: Icon(Icons.directions_car, color: Colors.teal),
-              title: const Text('Meus Veículos', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              subtitle: const Text('Cadastro, edição e remoção de veículos'),
-              trailing: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const VehicleManagementPage(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.directions_car, color: Colors.teal, size: 40),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text('Meus Veículos', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 52),
+                    child: Text('Cadastro, edição e remoção de veículos'),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const VehicleManagementPage(),
+                          ),
+                        );
+                      },
+                      child: const Text('Gerenciar Veículos'),
                     ),
-                  );
-                },
-                child: const Text('Gerenciar Veículos'),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),
-            ListTile(
-              leading: Icon(Icons.build, color: Colors.orange),
-              title: const Text('Minhas Necessidades', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              subtitle: const Text('Criar nova necessidade de serviço com geolocalização e tipo de serviço'),
-              trailing: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ServiceNeedListPage(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.build, color: Colors.orange, size: 40),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text('Minhas Necessidades', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 52),
+                    child: Text('Criar nova necessidade de serviço com geolocalização e tipo de serviço'),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ServiceNeedListPage(),
+                          ),
+                        );
+                      },
+                      child: const Text('Gerenciar Necessidades'),
                     ),
-                  );
-                },
-                child: const Text('Gerenciar Necessidades'),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),
-            ListTile(
-              leading: Icon(Icons.gavel, color: Colors.purple),
-              title: const Text('Propostas Recebidas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              subtitle: const Text('Leilão invertido: ver propostas dos prestadores com valores decrescentes'),
-              trailing: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProposalsPage(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.gavel, color: Colors.purple, size: 40),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text('Propostas Recebidas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 52),
+                    child: Text('Leilão invertido: ver propostas dos prestadores com valores decrescentes'),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProposalsPage(),
+                          ),
+                        );
+                      },
+                      child: const Text('Visualizar Propostas'),
                     ),
-                  );
-                },
-                child: const Text('Visualizar Propostas'),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),
-            ListTile(
-              leading: Icon(Icons.payment, color: Colors.green),
-              title: const Text('Pagamento', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              subtitle: const Text('Vincular cartão de crédito (Stripe)'),
-              trailing: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const PaymentManagementPage(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.payment, color: Colors.green, size: 40),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text('Pagamento', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 52),
+                    child: Text('Vincular cartão de crédito (Stripe)'),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PaymentManagementPage(),
+                          ),
+                        );
+                      },
+                      child: const Text('Gerenciar Pagamentos'),
                     ),
-                  );
-                },
-                child: const Text('Gerenciar Pagamentos'),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),
-            ListTile(
-              leading: Icon(Icons.rate_review, color: Colors.blue),
-              title: const Text('Avaliar Serviço', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              subtitle: const Text('Avaliar o serviço após finalizado'),
-              trailing: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ServiceEvaluationPage(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.rate_review, color: Colors.blue, size: 40),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text('Avaliar Serviço', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 52),
+                    child: Text('Avaliar o serviço após finalizado'),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ServiceEvaluationPage(),
+                          ),
+                        );
+                      },
+                      child: const Text('Avaliar Serviço'),
                     ),
-                  );
-                },
-                child: const Text('Avaliar Serviço'),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),
-            ListTile(
-              leading: Icon(Icons.receipt_long, color: Colors.brown),
-              title: const Text('Relatório de Despesas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              subtitle: const Text('Relatório por período e por veículo'),
-              trailing: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ExpenseReportsPage(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.receipt_long, color: Colors.brown, size: 40),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text('Relatório de Despesas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 52),
+                    child: Text('Relatório por período e por veículo'),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ExpenseReportsPage(),
+                          ),
+                        );
+                      },
+                      child: const Text('Visualizar Relatórios'),
                     ),
-                  );
-                },
-                child: const Text('Visualizar Relatórios'),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),
-            ListTile(
-              leading: Icon(Icons.subscriptions, color: Colors.deepPurple),
-              title: const Text('Assinatura', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              subtitle: const Text('Ver plano atual (Standard ou Premium)'),
-              trailing: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SubscriptionManagementPage(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.subscriptions, color: Colors.deepPurple, size: 40),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text('Assinatura', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 52),
+                    child: Text('Ver plano atual (Standard ou Premium)'),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SubscriptionManagementPage(),
+                          ),
+                        );
+                      },
+                      child: const Text('Gerenciar Assinatura'),
                     ),
-                  );
-                },
-                child: const Text('Gerenciar Assinatura'),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),
-            ListTile(
-              leading: Icon(Icons.message, color: Colors.tealAccent),
-              title: const Text('Mensagens', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              subtitle: const Text('Chat com prestadores com tradução automática'),
-              trailing: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const MessageCenterPage(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.message, color: Colors.tealAccent, size: 40),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text('Mensagens', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 52),
+                    child: Text('Chat com prestadores com tradução automática'),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MessageCenterPage(),
+                          ),
+                        );
+                      },
+                      child: const Text('Abrir Central de Mensagens'),
                     ),
-                  );
-                },
-                child: const Text('Abrir Central de Mensagens'),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),
-            ListTile(
-              leading: Icon(Icons.person, color: Colors.pinkAccent),
-              title: const Text('Perfil', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              subtitle: const Text('Alterar dados pessoais e senha'),
-              trailing: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProfileEditPage(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.person, color: Colors.pinkAccent, size: 40),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text('Perfil', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 52),
+                    child: Text('Alterar dados pessoais e senha'),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProfileEditPage(),
+                          ),
+                        );
+                      },
+                      child: const Text('Editar Perfil'),
                     ),
-                  );
-                },
-                child: const Text('Editar Perfil'),
+                  ),
+                ],
               ),
             ),
           ],
@@ -186,6 +366,14 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
       ),
     ];
   }
++
++    // Add placeholder pages for other tabs to avoid RangeError
++    for (int i = _pages.length; i < 9; i++) {
++      _pages.add(
++        Center(
++          child: Text('Página $i - Em desenvolvimento', style: const TextStyle(fontSize: 24)),
++        ),
++      );
 
   void _onItemTapped(int index) {
     setState(() {
