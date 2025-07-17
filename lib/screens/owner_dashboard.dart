@@ -244,7 +244,7 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
                           ),
                         );
                       },
-                      child: const Text('Visualizar Relatórios'),
+                    child: const Text('Visualizar Relatórios'),
                     ),
                   ),
                 ],
@@ -365,15 +365,16 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
         ),
       ),
     ];
+
+    // Add placeholder pages for other tabs to avoid RangeError
+    for (int i = _pages.length; i < 9; i++) {
+      _pages.add(
+        Center(
+          child: Text('Página \$i - Em desenvolvimento', style: const TextStyle(fontSize: 24)),
+        ),
+      );
+    }
   }
-+
-+    // Add placeholder pages for other tabs to avoid RangeError
-+    for (int i = _pages.length; i < 9; i++) {
-+      _pages.add(
-+        Center(
-+          child: Text('Página $i - Em desenvolvimento', style: const TextStyle(fontSize: 24)),
-+        ),
-+      );
 
   void _onItemTapped(int index) {
     setState(() {
