@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../mock_data.dart';
 
 class TransferViewPage extends StatelessWidget {
-  const TransferViewPage({Key? key}) : super(key: key);
+  const TransferViewPage({super.key});
 
   @override
   Widget build(BuildContext context) {

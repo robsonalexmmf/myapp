@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ServiceEditPage extends StatefulWidget {
   final Map<String, dynamic>? service;
 
-  const ServiceEditPage({Key? key, this.service}) : super(key: key);
+  const ServiceEditPage({super.key, this.service});
 
   @override
   State<ServiceEditPage> createState() => _ServiceEditPageState();

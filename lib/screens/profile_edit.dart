@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProfileEditPage extends StatefulWidget {
-  const ProfileEditPage({Key? key}) : super(key: key);
+  const ProfileEditPage({super.key});
 
   @override
   State<ProfileEditPage> createState() => _ProfileEditPageState();
@@ -61,6 +61,18 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   }
                 },
                 child: const Text('Salvar'),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton.icon(
+                onPressed: () {
+                  // Logout logic: navigate to login page
+                  Navigator.pushReplacementNamed(context, '/login');
+                },
+                icon: const Icon(Icons.logout),
+                label: const Text('Logout'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                ),
               ),
             ],
           ),

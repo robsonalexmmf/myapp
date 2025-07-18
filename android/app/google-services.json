@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "529836997520",
+    "project_id": "needoapp-ba34c",
+    "storage_bucket": "needoapp-ba34c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529836997520:android:b0d09fa974174d2b22d115",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB9bpVbf1nq4ZXLxtewoGB77NasCCkYXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

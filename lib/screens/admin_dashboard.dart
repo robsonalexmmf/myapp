@@ -4,9 +4,10 @@ import 'transfer_view.dart';
 import 'service_management.dart';
 import 'user_management.dart';
 import 'subscription_management.dart';
+import 'profile_edit.dart';
 
 class AdminDashboardPage extends StatefulWidget {
-  const AdminDashboardPage({Key? key}) : super(key: key);
+  const AdminDashboardPage({super.key});
 
   @override
   State<AdminDashboardPage> createState() => _AdminDashboardPageState();
@@ -23,15 +24,23 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
     _context = context;
   }
 
-  static final List<Widget> _pages = <Widget>[
-    Padding(
-      padding: const EdgeInsets.all(16),
-      child: ListView(
-        children: [
-          const Text('Gerenciar Impostos', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 20),
-          Builder(
-            builder: (context) => ElevatedButton(
+  List<Widget> get _pages {
+    return [
+      Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.account_balance, color: Colors.blue),
+              title: const Text('Gerenciar Impostos 🧾', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            ),
+            const SizedBox(height: 8),
+            const Padding(
+              padding: EdgeInsets.only(left: 16),
+              child: Text('Gerencie os impostos de forma eficiente e organizada 📊'),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -40,20 +49,42 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Gerenciar Impostos'),
+              icon: const Icon(Icons.account_balance_wallet),
+              label: const Text('Gerenciar Impostos'),
             ),
-          ),
-        ],
+            const SizedBox(height: 30),
+            Center(
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/login');
+                },
+                icon: const Icon(Icons.logout, color: Colors.white),
+                label: const Text('Logout'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  textStyle: const TextStyle(fontSize: 18),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(16),
-      child: ListView(
-        children: [
-          const Text('Visualizar Transferências', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 20),
-          Builder(
-            builder: (context) => ElevatedButton(
+      Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.swap_horiz, color: Colors.orange),
+              title: const Text('Visualizar Transferências 🔄', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            ),
+            const SizedBox(height: 8),
+            const Padding(
+              padding: EdgeInsets.only(left: 16),
+              child: Text('Acompanhe todas as transferências realizadas com segurança 💸'),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -62,20 +93,42 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Visualizar Transferências'),
+              icon: const Icon(Icons.swap_calls),
+              label: const Text('Visualizar Transferências'),
             ),
-          ),
-        ],
+            const SizedBox(height: 30),
+            Center(
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/login');
+                },
+                icon: const Icon(Icons.logout, color: Colors.white),
+                label: const Text('Logout'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  textStyle: const TextStyle(fontSize: 18),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(16),
-      child: ListView(
-        children: [
-          const Text('Gerenciar Serviços', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 20),
-          Builder(
-            builder: (context) => ElevatedButton(
+      Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.build, color: Colors.green),
+              title: const Text('Gerenciar Serviços 🛠️', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            ),
+            const SizedBox(height: 8),
+            const Padding(
+              padding: EdgeInsets.only(left: 16),
+              child: Text('Administre os serviços oferecidos com facilidade ⚙️'),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -84,20 +137,42 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Gerenciar Serviços'),
+              icon: const Icon(Icons.build_circle),
+              label: const Text('Gerenciar Serviços'),
             ),
-          ),
-        ],
+            const SizedBox(height: 30),
+            Center(
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/login');
+                },
+                icon: const Icon(Icons.logout, color: Colors.white),
+                label: const Text('Logout'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  textStyle: const TextStyle(fontSize: 18),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(16),
-      child: ListView(
-        children: [
-          const Text('Gerenciar Usuários', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 20),
-          Builder(
-            builder: (context) => ElevatedButton(
+      Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.group, color: Colors.purple),
+              title: const Text('Gerenciar Usuários 👥', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            ),
+            const SizedBox(height: 8),
+            const Padding(
+              padding: EdgeInsets.only(left: 16),
+              child: Text('Controle e gerencie os usuários do sistema com facilidade 👤'),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -106,20 +181,42 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Gerenciar Usuários'),
+              icon: const Icon(Icons.manage_accounts),
+              label: const Text('Gerenciar Usuários'),
             ),
-          ),
-        ],
+            const SizedBox(height: 30),
+            Center(
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/login');
+                },
+                icon: const Icon(Icons.logout, color: Colors.white),
+                label: const Text('Logout'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  textStyle: const TextStyle(fontSize: 18),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(16),
-      child: ListView(
-        children: [
-          const Text('Gerenciar Assinaturas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 20),
-          Builder(
-            builder: (context) => ElevatedButton(
+      Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.subscriptions, color: Colors.deepPurple),
+              title: const Text('Gerenciar Assinaturas 📜', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            ),
+            const SizedBox(height: 8),
+            const Padding(
+              padding: EdgeInsets.only(left: 16),
+              child: Text('Gerencie os planos de assinatura e seus benefícios 📋'),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -128,13 +225,29 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Gerenciar Assinaturas'),
+              icon: const Icon(Icons.subscriptions),
+              label: const Text('Gerenciar Assinaturas'),
             ),
-          ),
-        ],
+            const SizedBox(height: 30),
+            Center(
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/login');
+                },
+                icon: const Icon(Icons.logout, color: Colors.white),
+                label: const Text('Logout'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  textStyle: const TextStyle(fontSize: 18),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-  ];
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -157,6 +270,45 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
         centerTitle: true,
         elevation: 8,
         backgroundColor: Theme.of(context).colorScheme.primary,
+        actions: [
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.person),
+            onSelected: (value) {
+              if (value == 'edit_profile') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileEditPage(),
+                  ),
+                );
+              } else if (value == 'logout') {
+                Navigator.pushReplacementNamed(context, '/login');
+              }
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              PopupMenuItem<String>(
+                value: 'edit_profile',
+                child: Row(
+                  children: const [
+                    Icon(Icons.edit, color: Colors.blue),
+                    SizedBox(width: 8),
+                    Text('Editar Perfil ✏️'),
+                  ],
+                ),
+              ),
+              PopupMenuItem<String>(
+                value: 'logout',
+                child: Row(
+                  children: const [
+                    Icon(Icons.logout, color: Colors.red),
+                    SizedBox(width: 8),
+                    Text('Logout 🚪'),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
       body: _pages.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(

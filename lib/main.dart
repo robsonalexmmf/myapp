@@ -9,7 +9,22 @@ import 'screens/owner_dashboard.dart';
 import 'screens/provider_dashboard.dart';
 import 'screens/admin_dashboard.dart';
 
-void main() {
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'screens/owner_registration.dart';
+import 'screens/vehicle_registration.dart';
+import 'screens/service_provider_registration.dart';
+import 'screens/service_need_registration.dart';
+import 'screens/service_need_list.dart';
+import 'screens/login.dart';
+import 'screens/owner_dashboard.dart';
+import 'screens/provider_dashboard.dart';
+import 'screens/admin_dashboard.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Inicializa o Firebase de forma assíncrona antes de rodar o app
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -80,7 +95,7 @@ class MyApp extends StatelessWidget {
 
 class PlaceholderScreen extends StatelessWidget {
   final String title;
-  const PlaceholderScreen({Key? key, required this.title}) : super(key: key);
+  const PlaceholderScreen({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

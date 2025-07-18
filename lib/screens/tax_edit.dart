@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TaxEditPage extends StatefulWidget {
   final Map<String, dynamic>? tax;
 
-  const TaxEditPage({Key? key, this.tax}) : super(key: key);
+  const TaxEditPage({super.key, this.tax});
 
   @override
   State<TaxEditPage> createState() => _TaxEditPageState();

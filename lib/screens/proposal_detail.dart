@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProposalDetailPage extends StatelessWidget {
   final Map<String, dynamic> proposal;
 
-  const ProposalDetailPage({Key? key, required this.proposal}) : super(key: key);
+  const ProposalDetailPage({super.key, required this.proposal});
 
   @override
   Widget build(BuildContext context) {

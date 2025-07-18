@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ServiceNeedDetailPage extends StatelessWidget {
   final Map<String, dynamic> need;
 
-  const ServiceNeedDetailPage({Key? key, required this.need}) : super(key: key);
+  const ServiceNeedDetailPage({super.key, required this.need});
 
   @override
   Widget build(BuildContext context) {

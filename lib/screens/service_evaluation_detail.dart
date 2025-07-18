@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ServiceEvaluationDetailPage extends StatelessWidget {
   final Map<String, dynamic> review;
 
-  const ServiceEvaluationDetailPage({Key? key, required this.review}) : super(key: key);
+  const ServiceEvaluationDetailPage({super.key, required this.review});
 
   @override
   Widget build(BuildContext context) {

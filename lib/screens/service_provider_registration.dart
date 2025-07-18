@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ServiceProviderRegistrationPage extends StatefulWidget {
-  const ServiceProviderRegistrationPage({Key? key}) : super(key: key);
+  const ServiceProviderRegistrationPage({super.key});
 
   @override
   _ServiceProviderRegistrationPageState createState() => _ServiceProviderRegistrationPageState();
@@ -16,14 +16,14 @@ class _ServiceProviderRegistrationPageState extends State<ServiceProviderRegistr
   bool canDiagnoseVehicle = false;
 
   final List<String> availableServices = [
-    'Entregar Carro',
-    'Buscar Carro',
-    'Lavagem Expressa',
-    'Lavagem Completa',
-    'Troca de óleo e filtro',
-    'Serviços mecânicos',
-    'Guincho',
-    'Diagnóstico de problemas',
+    'Entregar Carro 🚗',
+    'Buscar Carro 🚕',
+    'Lavagem Expressa 🧼',
+    'Lavagem Completa 🛁',
+    'Troca de óleo e filtro 🛢️',
+    'Serviços mecânicos 🔧',
+    'Guincho 🚨',
+    'Diagnóstico de problemas 🩺',
   ];
 
   void _submit() {
@@ -38,7 +38,14 @@ class _ServiceProviderRegistrationPageState extends State<ServiceProviderRegistr
 
   Widget _buildServiceCheckbox(String service) {
     return CheckboxListTile(
-      title: Text(service),
+      title: Row(
+        children: [
+          Text(service),
+          const SizedBox(width: 8),
+          if (service == 'Entregar Carro 🚗' || service == 'Buscar Carro 🚕')
+            const Text('🛠️', style: TextStyle(fontSize: 18)),
+        ],
+      ),
       value: services.contains(service),
       onChanged: (bool? value) {
         setState(() {
@@ -85,7 +92,7 @@ class _ServiceProviderRegistrationPageState extends State<ServiceProviderRegistr
               ),
               const SizedBox(height: 20),
               const Text('Serviços que realiza:', style: TextStyle(fontWeight: FontWeight.bold)),
-              ...availableServices.map(_buildServiceCheckbox).toList(),
+              ...availableServices.map(_buildServiceCheckbox),
               if (services.contains('Buscar Carro') || services.contains('Entregar Carro'))
                 CheckboxListTile(
                   title: const Text('Capacidade de diagnosticar problemas no veículo'),
@@ -99,7 +106,14 @@ class _ServiceProviderRegistrationPageState extends State<ServiceProviderRegistr
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _submit,
-                child: const Text('Registrar Prestador'),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  Icon(Icons.person_add),
+                  SizedBox(width: 8),
+                  Text('Registrar Prestador'),
+                ],
+              ),
               ),
             ],
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ServiceNeedRegistrationPage extends StatefulWidget {
-  const ServiceNeedRegistrationPage({Key? key}) : super(key: key);
+  const ServiceNeedRegistrationPage({super.key});
 
   @override
   _ServiceNeedRegistrationPageState createState() => _ServiceNeedRegistrationPageState();

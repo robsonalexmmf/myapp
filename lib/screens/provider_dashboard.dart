@@ -8,7 +8,7 @@ import 'service_evaluation.dart';
 import 'profile_edit.dart';
 
 class ProviderDashboardPage extends StatefulWidget {
-  const ProviderDashboardPage({Key? key}) : super(key: key);
+  const ProviderDashboardPage({super.key});
 
   @override
   State<ProviderDashboardPage> createState() => _ProviderDashboardPageState();
@@ -17,19 +17,31 @@ class ProviderDashboardPage extends StatefulWidget {
 class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
   int _selectedIndex = 0;
 
-  static final List<Widget> _pages = <Widget>[
+    static final List<Widget> _pages = <Widget>[
     Padding(
       padding: const EdgeInsets.all(16),
       child: ListView(
         children: [
-          const Text('Meus Serviços', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ListTile(
+            leading: const Icon(Icons.build, color: Colors.blue),
+            title: const Text('Meus Serviços', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ),
           const SizedBox(height: 12),
-          const Text('Vincular aos serviços que realiza (checkbox)'),
-          const Text('Se escolher "Buscar ou Levar Carro", mostrar opção:'),
-          const Text('✅ Capacidade de diagnosticar problemas no veículo'),
+          ListTile(
+            leading: const Text('🔧', style: TextStyle(fontSize: 20)),
+            title: const Text('Vincular aos serviços que realiza (checkbox)'),
+          ),
+          ListTile(
+            leading: const Text('🚗', style: TextStyle(fontSize: 20)),
+            title: const Text('Se escolher "Buscar ou Levar Carro", mostrar opção:'),
+          ),
+          ListTile(
+            leading: const Text('✅', style: TextStyle(fontSize: 20)),
+            title: const Text('Capacidade de diagnosticar problemas no veículo'),
+          ),
           const SizedBox(height: 20),
           Builder(
-            builder: (context) => ElevatedButton(
+            builder: (context) => ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -38,7 +50,8 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Gerenciar Serviços'),
+              icon: const Icon(Icons.settings),
+              label: const Text('Gerenciar Serviços'),
             ),
           ),
         ],
@@ -48,14 +61,26 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
       padding: const EdgeInsets.all(16),
       child: ListView(
         children: [
-          const Text('Necessidades Próximas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ListTile(
+            leading: const Icon(Icons.location_on, color: Colors.red),
+            title: const Text('Necessidades Próximas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ),
           const SizedBox(height: 12),
-          const Text('Lista filtrada por raio de geolocalização'),
-          const Text('Ver detalhes da necessidade'),
-          const Text('Enviar proposta com valor menor que a anterior'),
+          ListTile(
+            leading: const Text('📍', style: TextStyle(fontSize: 20)),
+            title: const Text('Lista filtrada por raio de geolocalização'),
+          ),
+          ListTile(
+            leading: const Text('🔎', style: TextStyle(fontSize: 20)),
+            title: const Text('Ver detalhes da necessidade'),
+          ),
+          ListTile(
+            leading: const Text('💰', style: TextStyle(fontSize: 20)),
+            title: const Text('Enviar proposta com valor menor que a anterior'),
+          ),
           const SizedBox(height: 20),
           Builder(
-            builder: (context) => ElevatedButton(
+            builder: (context) => ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -64,7 +89,8 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Visualizar Necessidades'),
+              icon: const Icon(Icons.list),
+              label: const Text('Visualizar Necessidades'),
             ),
           ),
         ],
@@ -74,13 +100,22 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
       padding: const EdgeInsets.all(16),
       child: ListView(
         children: [
-          const Text('Minhas Propostas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ListTile(
+            leading: const Icon(Icons.gavel, color: Colors.orange),
+            title: const Text('Minhas Propostas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ),
           const SizedBox(height: 12),
-          const Text('Ver status: enviada, aceita, recusada'),
-          const Text('Ver histórico'),
+          ListTile(
+            leading: const Text('📄', style: TextStyle(fontSize: 20)),
+            title: const Text('Ver status: enviada, aceita, recusada'),
+          ),
+          ListTile(
+            leading: const Text('📜', style: TextStyle(fontSize: 20)),
+            title: const Text('Ver histórico'),
+          ),
           const SizedBox(height: 20),
           Builder(
-            builder: (context) => ElevatedButton(
+            builder: (context) => ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -89,7 +124,8 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Visualizar Propostas'),
+              icon: const Icon(Icons.visibility),
+              label: const Text('Visualizar Propostas'),
             ),
           ),
         ],
@@ -99,14 +135,26 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
       padding: const EdgeInsets.all(16),
       child: ListView(
         children: [
-          const Text('Execução do Serviço', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ListTile(
+            leading: const Icon(Icons.flag, color: Colors.green),
+            title: const Text('Execução do Serviço', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ),
           const SizedBox(height: 12),
-          const Text('Preencher informações obrigatórias por tipo de serviço:'),
-          const Text('Upload de fotos (traseira, painel, internas, etc.)'),
-          const Text('Confirmação de geolocalização'),
+          ListTile(
+            leading: const Text('📝', style: TextStyle(fontSize: 20)),
+            title: const Text('Preencher informações obrigatórias por tipo de serviço:'),
+          ),
+          ListTile(
+            leading: const Text('📷', style: TextStyle(fontSize: 20)),
+            title: const Text('Upload de fotos (traseira, painel, internas, etc.)'),
+          ),
+          ListTile(
+            leading: const Text('📍', style: TextStyle(fontSize: 20)),
+            title: const Text('Confirmação de geolocalização'),
+          ),
           const SizedBox(height: 20),
           Builder(
-            builder: (context) => ElevatedButton(
+            builder: (context) => ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -115,7 +163,8 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Gerenciar Execução'),
+              icon: const Icon(Icons.build_circle),
+              label: const Text('Gerenciar Execução'),
             ),
           ),
         ],
@@ -125,14 +174,26 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
       padding: const EdgeInsets.all(16),
       child: ListView(
         children: [
-          const Text('Ganhos', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ListTile(
+            leading: const Icon(Icons.attach_money, color: Colors.greenAccent),
+            title: const Text('Ganhos', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ),
           const SizedBox(height: 12),
-          const Text('Ver valores recebidos por serviço'),
-          const Text('Status de pagamento (pendente, pago)'),
-          const Text('Relatório de transferências'),
+          ListTile(
+            leading: const Text('💵', style: TextStyle(fontSize: 20)),
+            title: const Text('Ver valores recebidos por serviço'),
+          ),
+          ListTile(
+            leading: const Text('📅', style: TextStyle(fontSize: 20)),
+            title: const Text('Status de pagamento (pendente, pago)'),
+          ),
+          ListTile(
+            leading: const Text('📊', style: TextStyle(fontSize: 20)),
+            title: const Text('Relatório de transferências'),
+          ),
           const SizedBox(height: 20),
           Builder(
-            builder: (context) => ElevatedButton(
+            builder: (context) => ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -141,7 +202,8 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Visualizar Ganhos'),
+              icon: const Icon(Icons.receipt_long),
+              label: const Text('Visualizar Ganhos'),
             ),
           ),
         ],
@@ -151,13 +213,22 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
       padding: const EdgeInsets.all(16),
       child: ListView(
         children: [
-          const Text('Mensagens', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ListTile(
+            leading: const Icon(Icons.message, color: Colors.blueAccent),
+            title: const Text('Mensagens', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ),
           const SizedBox(height: 12),
-          const Text('Chat com o proprietário com tradução automática'),
-          const Text('Envio de fotos e vídeos'),
+          ListTile(
+            leading: const Text('💬', style: TextStyle(fontSize: 20)),
+            title: const Text('Chat com o proprietário com tradução automática'),
+          ),
+          ListTile(
+            leading: const Text('📸', style: TextStyle(fontSize: 20)),
+            title: const Text('Envio de fotos e vídeos'),
+          ),
           const SizedBox(height: 20),
           Builder(
-            builder: (context) => ElevatedButton(
+            builder: (context) => ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -166,7 +237,8 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Abrir Central de Mensagens'),
+              icon: const Icon(Icons.chat),
+              label: const Text('Abrir Central de Mensagens'),
             ),
           ),
         ],
@@ -176,12 +248,18 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
       padding: const EdgeInsets.all(16),
       child: ListView(
         children: [
-          const Text('Avaliações Recebidas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ListTile(
+            leading: const Icon(Icons.rate_review, color: Colors.purple),
+            title: const Text('Avaliações Recebidas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ),
           const SizedBox(height: 12),
-          const Text('Ver nota e comentários deixados pelos proprietários'),
+          ListTile(
+            leading: const Text('⭐', style: TextStyle(fontSize: 20)),
+            title: const Text('Ver nota e comentários deixados pelos proprietários'),
+          ),
           const SizedBox(height: 20),
           Builder(
-            builder: (context) => ElevatedButton(
+            builder: (context) => ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -190,7 +268,8 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Visualizar Avaliações'),
+              icon: const Icon(Icons.visibility),
+              label: const Text('Visualizar Avaliações'),
             ),
           ),
         ],
@@ -200,13 +279,22 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
       padding: const EdgeInsets.all(16),
       child: ListView(
         children: [
-          const Text('Perfil', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ListTile(
+            leading: const Icon(Icons.person, color: Colors.teal),
+            title: const Text('Perfil', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ),
           const SizedBox(height: 12),
-          const Text('Alterar dados pessoais e senha'),
-          const Text('Preferência de idioma'),
+          ListTile(
+            leading: const Text('👤', style: TextStyle(fontSize: 20)),
+            title: const Text('Alterar dados pessoais e senha'),
+          ),
+          ListTile(
+            leading: const Text('🌐', style: TextStyle(fontSize: 20)),
+            title: const Text('Preferência de idioma'),
+          ),
           const SizedBox(height: 20),
           Builder(
-            builder: (context) => ElevatedButton(
+            builder: (context) => ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -215,7 +303,8 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
                   ),
                 );
               },
-              child: const Text('Editar Perfil'),
+              icon: const Icon(Icons.edit),
+              label: const Text('Editar Perfil'),
             ),
           ),
         ],

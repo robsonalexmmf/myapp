@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../mock_data.dart';
 
 class ExpenseReportsPage extends StatelessWidget {
-  const ExpenseReportsPage({Key? key}) : super(key: key);
+  const ExpenseReportsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

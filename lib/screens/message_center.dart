@@ -3,7 +3,7 @@ import '../mock_data.dart';
 import 'chat_detail.dart';
 
 class MessageCenterPage extends StatelessWidget {
-  const MessageCenterPage({Key? key}) : super(key: key);
+  const MessageCenterPage({super.key});
 
   @override
   Widget build(BuildContext context) {

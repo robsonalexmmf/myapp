@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../mock_data.dart';
 
 class SubscriptionManagementPage extends StatelessWidget {
-  const SubscriptionManagementPage({Key? key}) : super(key: key);
+  const SubscriptionManagementPage({super.key});
 
   @override
   Widget build(BuildContext context) {

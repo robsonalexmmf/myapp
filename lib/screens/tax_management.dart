@@ -3,7 +3,7 @@ import '../mock_data.dart';
 import 'tax_edit.dart';
 
 class TaxManagementPage extends StatelessWidget {
-  const TaxManagementPage({Key? key}) : super(key: key);
+  const TaxManagementPage({super.key});
 
   @override
   Widget build(BuildContext context) {

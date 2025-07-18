@@ -10,7 +10,7 @@ import 'message_center.dart';
 import 'profile_edit.dart';
 
 class OwnerDashboardPage extends StatefulWidget {
-  const OwnerDashboardPage({Key? key}) : super(key: key);
+  const OwnerDashboardPage({super.key});
 
   @override
   State<OwnerDashboardPage> createState() => _OwnerDashboardPageState();
@@ -19,360 +19,237 @@ class OwnerDashboardPage extends StatefulWidget {
 class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
   int _selectedIndex = 0;
 
-  late final List<Widget> _pages;
-
-  @override
-  void initState() {
-    super.initState();
-    _pages = <Widget>[
-      Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(Icons.directions_car, color: Colors.teal, size: 40),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: Text('Meus Veículos', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 52),
-                    child: Text('Cadastro, edição e remoção de veículos'),
-                  ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const VehicleManagementPage(),
-                          ),
-                        );
-                      },
-                      child: const Text('Gerenciar Veículos'),
-                    ),
-                  ),
-                ],
+  Widget _buildVehicleManagementSection() {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: ListView(
+        children: [
+          _buildSection(
+            icon: Icons.directions_car,
+            iconColor: Colors.teal,
+            title: 'Meus Veículos 🚗',
+            description: 'Cadastro, edição e remoção de veículos 🛠️',
+            buttonText: 'Gerenciar Veículos',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const VehicleManagementPage(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          _buildSection(
+            icon: Icons.build,
+            iconColor: Colors.orange,
+            title: 'Minhas Necessidades 🛎️',
+            description: 'Criar nova necessidade de serviço com geolocalização e tipo de serviço 📍',
+            buttonText: 'Gerenciar Necessidades',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ServiceNeedListPage(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          _buildSection(
+            icon: Icons.gavel,
+            iconColor: Colors.purple,
+            title: 'Propostas Recebidas 📑',
+            description: 'Leilão invertido: ver propostas dos prestadores com valores decrescentes 📉',
+            buttonText: 'Visualizar Propostas',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProposalsPage(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          _buildSection(
+            icon: Icons.payment,
+            iconColor: Colors.green,
+            title: 'Pagamento 💳',
+            description: 'Vincular cartão de crédito (Stripe) 💰',
+            buttonText: 'Gerenciar Pagamentos',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const PaymentManagementPage(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          _buildSection(
+            icon: Icons.rate_review,
+            iconColor: Colors.blue,
+            title: 'Avaliar Serviço ⭐',
+            description: 'Avaliar o serviço após finalizado 📝',
+            buttonText: 'Avaliar Serviço',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ServiceEvaluationPage(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          _buildSection(
+            icon: Icons.receipt_long,
+            iconColor: Colors.brown,
+            title: 'Relatório de Despesas 📊',
+            description: 'Relatório por período e por veículo 📅',
+            buttonText: 'Visualizar Relatórios',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ExpenseReportsPage(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          _buildSection(
+            icon: Icons.subscriptions,
+            iconColor: Colors.deepPurple,
+            title: 'Assinatura 📜',
+            description: 'Ver plano atual (Standard ou Premium) 🏷️',
+            buttonText: 'Gerenciar Assinatura',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SubscriptionManagementPage(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          _buildSection(
+            icon: Icons.message,
+            iconColor: Colors.tealAccent,
+            title: 'Mensagens 💬',
+            description: 'Chat com prestadores com tradução automática 🌐',
+            buttonText: 'Abrir Central de Mensagens',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MessageCenterPage(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          _buildSection(
+            icon: Icons.person,
+            iconColor: Colors.pinkAccent,
+            title: 'Perfil 👤',
+            description: 'Alterar dados pessoais e senha 🔒',
+            buttonText: 'Editar Perfil',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProfileEditPage(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 30),
+          Center(
+            child: ElevatedButton.icon(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/login');
+              },
+              icon: const Icon(Icons.logout, color: Colors.white),
+              label: const Text('Logout'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                textStyle: const TextStyle(fontSize: 18),
               ),
             ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(Icons.build, color: Colors.orange, size: 40),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: Text('Minhas Necessidades', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 52),
-                    child: Text('Criar nova necessidade de serviço com geolocalização e tipo de serviço'),
-                  ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ServiceNeedListPage(),
-                          ),
-                        );
-                      },
-                      child: const Text('Gerenciar Necessidades'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(Icons.gavel, color: Colors.purple, size: 40),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: Text('Propostas Recebidas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 52),
-                    child: Text('Leilão invertido: ver propostas dos prestadores com valores decrescentes'),
-                  ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ProposalsPage(),
-                          ),
-                        );
-                      },
-                      child: const Text('Visualizar Propostas'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(Icons.payment, color: Colors.green, size: 40),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: Text('Pagamento', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 52),
-                    child: Text('Vincular cartão de crédito (Stripe)'),
-                  ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const PaymentManagementPage(),
-                          ),
-                        );
-                      },
-                      child: const Text('Gerenciar Pagamentos'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(Icons.rate_review, color: Colors.blue, size: 40),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: Text('Avaliar Serviço', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 52),
-                    child: Text('Avaliar o serviço após finalizado'),
-                  ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ServiceEvaluationPage(),
-                          ),
-                        );
-                      },
-                      child: const Text('Avaliar Serviço'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(Icons.receipt_long, color: Colors.brown, size: 40),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: Text('Relatório de Despesas', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 52),
-                    child: Text('Relatório por período e por veículo'),
-                  ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ExpenseReportsPage(),
-                          ),
-                        );
-                      },
-                    child: const Text('Visualizar Relatórios'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(Icons.subscriptions, color: Colors.deepPurple, size: 40),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: Text('Assinatura', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 52),
-                    child: Text('Ver plano atual (Standard ou Premium)'),
-                  ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SubscriptionManagementPage(),
-                          ),
-                        );
-                      },
-                      child: const Text('Gerenciar Assinatura'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(Icons.message, color: Colors.tealAccent, size: 40),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: Text('Mensagens', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 52),
-                    child: Text('Chat com prestadores com tradução automática'),
-                  ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MessageCenterPage(),
-                          ),
-                        );
-                      },
-                      child: const Text('Abrir Central de Mensagens'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(Icons.person, color: Colors.pinkAccent, size: 40),
-                      SizedBox(width: 12),
-                      Expanded(
-                        child: Text('Perfil', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 52),
-                    child: Text('Alterar dados pessoais e senha'),
-                  ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ProfileEditPage(),
-                          ),
-                        );
-                      },
-                      child: const Text('Editar Perfil'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
-    ];
+    );
+  }
 
-    // Add placeholder pages for other tabs to avoid RangeError
-    for (int i = _pages.length; i < 9; i++) {
-      _pages.add(
-        Center(
-          child: Text('Página \$i - Em desenvolvimento', style: const TextStyle(fontSize: 24)),
-        ),
-      );
+  Widget _buildSection({
+    required IconData icon,
+    required Color iconColor,
+    required String title,
+    required String description,
+    required String buttonText,
+    required VoidCallback onPressed,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, color: iconColor, size: 40),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Padding(
+            padding: const EdgeInsets.only(left: 52),
+            child: Text(description),
+          ),
+          const SizedBox(height: 8),
+          Center(
+            child: ElevatedButton(
+              onPressed: onPressed,
+              child: Text(buttonText),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPage(int index) {
+    switch (index) {
+      case 0:
+        return _buildVehicleManagementSection();
+      case 1:
+        return const ServiceNeedListPage();
+      case 2:
+        return const ProposalsPage();
+      case 3:
+        return const PaymentManagementPage();
+      case 4:
+        return const ServiceEvaluationPage();
+      case 5:
+        return const ExpenseReportsPage();
+      case 6:
+        return const SubscriptionManagementPage();
+      case 7:
+        return const MessageCenterPage();
+      case 8:
+        return const ProfileEditPage();
+      default:
+        return Center(
+          child: Text('Página $index - Em desenvolvimento', style: const TextStyle(fontSize: 24)),
+        );
     }
   }
 
@@ -380,13 +257,6 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
     setState(() {
       _selectedIndex = index;
     });
-  }
-
-  BottomNavigationBarItem _buildNavItem(IconData icon, String label) {
-    return BottomNavigationBarItem(
-      icon: Icon(icon),
-      label: label,
-    );
   }
 
   @override
@@ -398,7 +268,10 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
         elevation: 8,
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
-      body: _pages.elementAt(_selectedIndex),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: List.generate(9, (index) => _buildPage(index)),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           _buildNavItem(Icons.directions_car, 'Veículos'),
@@ -417,6 +290,13 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
       ),
+    );
+  }
+
+  BottomNavigationBarItem _buildNavItem(IconData icon, String label) {
+    return BottomNavigationBarItem(
+      icon: Icon(icon),
+      label: label,
     );
   }
 }

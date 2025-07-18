@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../mock_data.dart';
 
 class PaymentManagementPage extends StatelessWidget {
-  const PaymentManagementPage({Key? key}) : super(key: key);
+  const PaymentManagementPage({super.key});
 
   @override
   Widget build(BuildContext context) {

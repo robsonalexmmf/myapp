@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ChatDetailPage extends StatelessWidget {
   final Map<String, dynamic> chat;
 
-  const ChatDetailPage({Key? key, required this.chat}) : super(key: key);
+  const ChatDetailPage({super.key, required this.chat});
 
   @override
   Widget build(BuildContext context) {

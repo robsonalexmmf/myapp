@@ -3,7 +3,7 @@ import '../mock_data.dart';
 import 'vehicle_edit.dart';
 
 class VehicleManagementPage extends StatelessWidget {
-  const VehicleManagementPage({Key? key}) : super(key: key);
+  const VehicleManagementPage({super.key});
 
   @override
   Widget build(BuildContext context) {

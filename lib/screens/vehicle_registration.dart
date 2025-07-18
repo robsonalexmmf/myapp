@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class VehicleRegistrationPage extends StatefulWidget {
-  const VehicleRegistrationPage({Key? key}) : super(key: key);
+  const VehicleRegistrationPage({super.key});
 
   @override
   _VehicleRegistrationPageState createState() => _VehicleRegistrationPageState();

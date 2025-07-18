@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class OwnerRegistrationPage extends StatefulWidget {
-  const OwnerRegistrationPage({Key? key}) : super(key: key);
+  const OwnerRegistrationPage({super.key});
 
   @override
   _OwnerRegistrationPageState createState() => _OwnerRegistrationPageState();

@@ -3,7 +3,7 @@ import '../mock_data.dart';
 import 'user_edit.dart';
 
 class UserManagementPage extends StatelessWidget {
-  const UserManagementPage({Key? key}) : super(key: key);
+  const UserManagementPage({super.key});
 
   @override
   Widget build(BuildContext context) {

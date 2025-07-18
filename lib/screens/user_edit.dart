@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class UserEditPage extends StatefulWidget {
   final Map<String, dynamic>? user;
 
-  const UserEditPage({Key? key, this.user}) : super(key: key);
+  const UserEditPage({super.key, this.user});
 
   @override
   State<UserEditPage> createState() => _UserEditPageState();

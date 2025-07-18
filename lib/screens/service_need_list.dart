@@ -3,7 +3,7 @@ import '../mock_data.dart';
 import 'service_need_detail.dart';
 
 class ServiceNeedListPage extends StatelessWidget {
-  const ServiceNeedListPage({Key? key}) : super(key: key);
+  const ServiceNeedListPage({super.key});
 
   @override
   Widget build(BuildContext context) {

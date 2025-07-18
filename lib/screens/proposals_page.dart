@@ -3,7 +3,7 @@ import '../mock_data.dart';
 import 'proposal_detail.dart';
 
 class ProposalsPage extends StatelessWidget {
-  const ProposalsPage({Key? key}) : super(key: key);
+  const ProposalsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

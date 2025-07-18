@@ -3,7 +3,7 @@ import '../mock_data.dart';
 import 'service_edit.dart';
 
 class ServiceManagementPage extends StatelessWidget {
-  const ServiceManagementPage({Key? key}) : super(key: key);
+  const ServiceManagementPage({super.key});
 
   @override
   Widget build(BuildContext context) {
