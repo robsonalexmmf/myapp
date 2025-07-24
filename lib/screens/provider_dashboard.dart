@@ -17,7 +17,7 @@ class ProviderDashboardPage extends StatefulWidget {
 class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
   int _selectedIndex = 0;
 
-    static final List<Widget> _pages = <Widget>[
+  static final List<Widget> _pages = <Widget>[
     Padding(
       padding: const EdgeInsets.all(16),
       child: ListView(
@@ -333,6 +333,45 @@ class _ProviderDashboardPageState extends State<ProviderDashboardPage> {
         centerTitle: true,
         elevation: 8,
         backgroundColor: Theme.of(context).colorScheme.primary,
+        actions: [
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.person),
+            onSelected: (value) {
+              if (value == 'edit_profile') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileEditPage(),
+                  ),
+                );
+              } else if (value == 'logout') {
+                Navigator.pushReplacementNamed(context, '/login');
+              }
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              PopupMenuItem<String>(
+                value: 'edit_profile',
+                child: Row(
+                  children: const [
+                    Icon(Icons.edit, color: Colors.blue),
+                    SizedBox(width: 8),
+                    Text('Editar Perfil ✏️'),
+                  ],
+                ),
+              ),
+              PopupMenuItem<String>(
+                value: 'logout',
+                child: Row(
+                  children: const [
+                    Icon(Icons.logout, color: Colors.red),
+                    SizedBox(width: 8),
+                    Text('Logout 🚪'),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
       body: _pages.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(

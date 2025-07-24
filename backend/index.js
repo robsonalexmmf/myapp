@@ -6,6 +6,7 @@ const authRoutes = require('./routes/auth');
 const vehicleRoutes = require('./routes/vehicles');
 const paymentRoutes = require('./routes/payments');
 const geolocationRoutes = require('./routes/geolocation');
+const serviceExecutionRoutes = require('./routes/service_execution');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -22,9 +23,12 @@ app.use('/api/payments', paymentRoutes);
 app.use('/api/geolocation', geolocationRoutes);
 const serviceNeedsRoutes = require('./routes/service_needs');
 app.use('/api/service-needs', serviceNeedsRoutes);
+app.use('/api/service-execution', serviceExecutionRoutes);
+
+const mongoUri = 'mongodb+srv://robsonmmfata:<32080910@Eu>@cluster0.cajuuec.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/automotive_service', {
+mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {

@@ -53,20 +53,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               label: const Text('Gerenciar Impostos'),
             ),
             const SizedBox(height: 30),
-            Center(
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login');
-                },
-                icon: const Icon(Icons.logout, color: Colors.white),
-                label: const Text('Logout'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  textStyle: const TextStyle(fontSize: 18),
-                ),
-              ),
-            ),
+            // Botão de logout removido conforme solicitado
           ],
         ),
       ),
@@ -97,20 +84,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               label: const Text('Visualizar Transferências'),
             ),
             const SizedBox(height: 30),
-            Center(
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login');
-                },
-                icon: const Icon(Icons.logout, color: Colors.white),
-                label: const Text('Logout'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  textStyle: const TextStyle(fontSize: 18),
-                ),
-              ),
-            ),
+            // Botão de logout removido conforme solicitado
           ],
         ),
       ),
@@ -141,20 +115,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               label: const Text('Gerenciar Serviços'),
             ),
             const SizedBox(height: 30),
-            Center(
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login');
-                },
-                icon: const Icon(Icons.logout, color: Colors.white),
-                label: const Text('Logout'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  textStyle: const TextStyle(fontSize: 18),
-                ),
-              ),
-            ),
+            // Botão de logout removido conforme solicitado
           ],
         ),
       ),
@@ -185,20 +146,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               label: const Text('Gerenciar Usuários'),
             ),
             const SizedBox(height: 30),
-            Center(
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login');
-                },
-                icon: const Icon(Icons.logout, color: Colors.white),
-                label: const Text('Logout'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  textStyle: const TextStyle(fontSize: 18),
-                ),
-              ),
-            ),
+            // Botão de logout removido conforme solicitado
           ],
         ),
       ),
@@ -229,20 +177,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
               label: const Text('Gerenciar Assinaturas'),
             ),
             const SizedBox(height: 30),
-            Center(
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login');
-                },
-                icon: const Icon(Icons.logout, color: Colors.white),
-                label: const Text('Logout'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  textStyle: const TextStyle(fontSize: 18),
-                ),
-              ),
-            ),
+            // Botão de logout removido conforme solicitado
           ],
         ),
       ),
@@ -282,7 +217,10 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
                   ),
                 );
               } else if (value == 'logout') {
-                Navigator.pushReplacementNamed(context, '/login');
+                // Aqui você pode adicionar a lógica de logout, por exemplo, limpar tokens ou estado de autenticação
+                // Depois redirecionar para a tela de login
+                // Exemplo simples:
+                Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
               }
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
